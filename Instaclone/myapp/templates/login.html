@@ -1,9 +1,27 @@
- # login.html
+<body bgcolor="teal">
+ <div class="container form-top-margin-100" align="center">
+    <div class="row">
+        <div class="col-sm-3">
+
+        </div>
+        <div class="col-xs-12 col-sm-6">
+            <p class="text-center form-heading">
+                <img src="http://theshairpodcast.com/wp-content/uploads/2017/07/instagram.png">
+                <h1 align="center">Login Here</h1>
+            </p>
+        </div>
+        <div class="col-sm-3">
+
+        </div>
+    </div>
+     <div class="row">
+        <div class="col-sm-3">
+
     <form method="post">
 
       <div>
           <label for="username">Username: </label>
-          <input id="username" type="text" name="username" value={{ username }}>
+          <input id="username" type="text" name="username" value={{ username }} >
       </div>
 
       <div>
@@ -14,3 +32,10 @@
       <input type="submit" value="Log In">
 
     </form>
+     <div class="col-sm-3">
+            <p class="error-message">{{ message }}</p>
+        </div>
+    </div>
+     </div>
+     </div>
+

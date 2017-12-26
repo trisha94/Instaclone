@@ -1,0 +1,67 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3">
+                <img src="https://www.seeklogo.net/wp-content/uploads/2016/06/Instagram-logo.png" width="110px" height="110px" alt="Instagram">
+            <b> 100gram </b></br>
+            Welcome
+        </div>
+        <div class="col-xs-12 col-sm-6">
+            {% for post in posts %}
+            <div class="panel panel-default">
+            <div class="panel-body">
+            <!--showing name of the profile and username as Name (username) -->
+            <strong> Posted by: {{ post.user.username }} </strong>
+            <p><small>[{{ post.created_on }}]</small></p>
+            <img class="img-rounded" style="display:inline-block; width:350px; height:300px;"
+                 src="{{ post.image_url }}" /><br>
+            <span  style="display:inline-block;"><i>{{ post.caption }}</i></span><br/><br/>
+            <div style="display:inline-block">
+                <form method="POST" action="/like/">
+                  {% csrf_token %}
+                  <input type="hidden" name="post" value="{{ post.id }}" />
+                    {% if post.has_liked %}
+                       <button type="submit" class="btn btn-default">
+                                <span style="color: blue;" class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+                       </button>
+                    {% else %}
+                    <button type="submit" class="btn btn-default">
+                                <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+                       </button>
+
+                    {% endif %}
+                </form>
+            </div>
+             <div style="display:inline-block">
+                {{ post.like_count }} likes this
+            </div>
+                 <div style="display:inline-block">
+                {{ post.like_count }} likes this
+            </div>
+
+            <div>
+                <form method="POST" action="/comment/">
+                    {% csrf_token %}<br>
+                    <div class="input-group">
+                        <input type="hidden" name="post" value="{{ post.id }}" />
+                     <input type="text" class="form-control" name="comment_text" placeholder="Write something good or bad here..." value="{{ comment_text }}">
+                        {{ comment_text }}
+                    <span class="input-group-btn">
+                        <button class="btn btn-secondary" type="submit" >Comment</button>
+                    </span>
+                    </div>
+                </form>
+            </div>
+
+            <div>
+                {% for comment in post.comments %}
+                <p><b>{{ comment.user.username }} </b> <small>[{{ comment.created_on }}]:</small> {{ comment.comment_text }}</p>
+                {% endfor %}
+            </div></div></div><hr>
+
+            {% endfor %}
+        </div>
+        <div class="col-sm-3">
+            Suggestions:
+        </div>
+    </div>
+</div>
