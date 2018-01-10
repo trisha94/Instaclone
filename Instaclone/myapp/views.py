@@ -4,13 +4,12 @@ import os
 from django.contrib.auth.hashers import make_password, check_password
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
-import cloudinary
-import cloudinary.uploader
-import cloudinary.api
 
 # Create your views here.
-from Instaclone.Instaclone.settings import BASE_DIR 
+#from settings import BA
 from imgurpython import ImgurClient
+
+from Instaclone.settings import BASE_DIR
 
 from forms import PostForm, SignUpForm, LoginForm
 
@@ -96,12 +95,10 @@ def PostView(request):
                 post = PostModel(user=user, image=image, caption=caption)
                 post.save()
 
-                path = BASE_DIR .path.join(BASE_DIR , post.image.url)
-
-                client = ImgurClient('c83158842a9256e', 'ba219c35073b2a80347afaf222e1ebc28dcc8e1a')
+                path = os.path.join(BASE_DIR, post.image.url)
+                client = ImgurClient('32af2eae25eb458', 'a9c38afeb2cc39aadc9c408557ce3a98d87f2be0')
                 post.image_url = client.upload_from_path(path, anon=True)['link']
 
-                #post.image_url = cloudinary.uploader.upload(path)
                 post.save()
                 return redirect('/')
 

@@ -19,6 +19,7 @@
           <option value="Instaclone.myapp.views.UserModel" />
           <option value="Instaclone.myapp.views.myapp" />
           <option value="Instaclone.Instaclone.urls.Instaclone" />
+          <option value="Instaclone.myapp.views.settings" />
         </list>
       </option>
     </inspection_tool>
