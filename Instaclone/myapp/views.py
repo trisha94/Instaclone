@@ -28,7 +28,7 @@ def SignupView(request):
             # saving data to DB
             user = UserModel(name=name, password=make_password(password), email=email, username=username)
             user.save()
-            return render(request, 'signup_success.html')
+            return render(request, 'success.html')
             # return redirect('login/')
     else:
         form = SignUpForm()

@@ -2,11 +2,9 @@ from django.conf.urls import include
 
 from django.conf.urls import url
 from django.contrib import admin
-from dashboard import views
+from myapp import views
 
 urlpatterns = [
-    url(r'^$', 'Instaclone.views.home', name='home'),
-     url(r'^blog/', include('blog.urls')),
     url(r'^$', views.FeedView),
     url(r'^login/', views.LoginView),
     url(r'^signup/', views.SignupView),
