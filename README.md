@@ -5,3 +5,5 @@ It is created by Trisha Kumari for evalutaion of training project for Acadview I
 </p>
 
 ##Screenshots
+
+<img src="https://github.com/trisha94/Instaclone/blob/master/Screenshots/Screen%20Shot%202018-01-11%20at%202.40.28%20PM.png?raw=true">
